@@ -15,7 +15,7 @@ const Card = ({ title, links }) => {
             href={item.href}
             className="flex items-center justify-between py-3 text-[#183059] hover:text-gray-700 hover:underline transition"
           >
-            <span className="pr-4 text-sm leading-snug p-1">{item.label}</span>
+            <span className="pr-4 text-lg leading-snug p-1">{item.label}</span>
             <ChevronRight className="w-4 h-4 flex-shrink-0" />
           </a>
         ))}
@@ -26,31 +26,33 @@ const Card = ({ title, links }) => {
 
 const SchemesPage = () => {
   const facultyLinks = [
-    { label: "Guidelines for Support for IITR Faculty for Visiting Institutions Abroad", href: "#" },
-    { label: "Online Application Form", href: "#" },
-    { label: "100% Advance for Visiting Institutions Abroad (pdf)", href: "#" },
-    { label: "Claim Form for Visiting Institutions Abroad (pdf)", href: "#" },
-    { label: "Proforma for Direct Payment (Pdf File)", href: "#" },
-    { label: "TA Form (pdf)", href: "#" },
+    { label: "Guidelines for Support for IITR Faculty for Visiting Institutions Abroad", href: "/forms/faculty-visiting-abroad-guidline" },
+    { label: "Online Application Form", href: "/forms/faculty-visiting-abroad-form" },
+    { label: "100% Advance for Visiting Institutions Abroad", href: "/100_ADVANCE__2.pdf" },
+    { label: "Claim Form for Visiting Institutions Abroad", href: "/Claim_Form_For_IITR_Faculty.pdf" },
+    { label: "Proforma for Direct Payment", href: "/Proforma_For_Direct_Payment.pdf" },
+    { label: "TA Form (pdf)", href: "/TRAVELLING_ALLOWANCE_FORM.pdf" },
   ];
 
   const visitorLinks = [
-    { label: "Online Application For Support for Faculty, Researchers, and Students from Foreign Institutions", href: "#" },
-    { label: "Guidelines for Support for Faculty, Researchers, and Students from Foreign Institutions", href: "#" },
-    { label: "Travelling Allowance Bill – IIT Roorkee", href: "#" },
+    { label: "Online Application For Support for Faculty, Researchers, and Students from Foreign Institutions", href: "/forms/visitor-form" },
+    { label: "Guidelines for Support for Faculty, Researchers, and Students from Foreign Institutions", href: "/forms/visitor-guidline" },
+    { label: "Visitors from Foreign Institutions", href: "Visiting_Faculty_Researchers_and_Students_from_Foreign.pdf" },
+    { label: "Travelling Allowance Bill – IIT Roorkee", href: "/TRAVELLING_ALLOWANCE_FORM.pdf" },
   ];
 
   const studentLinks = [
-    { label: "Partial Support for Visiting Institutions Abroad", href: "#" },
-    { label: "Partial Support to Attend Good International Conferences", href: "#" },
-    { label: "Partial Support for International Research Internships", href: "#" },
+    { label: "Partial Support for Visiting Institutions Abroad", href: "/student/visiting_abroad" },
+    { label: "Partial Support to Attend Good International Conferences", href: "/student/gic" },
+    { label: "Partial Support for International Research Internships", href: "/student/ir" },
+    { label: "Endowed Lecture series", href: "/student/lecture" },
   ];
 
   return (
     <main className="bg-gray-50 min-h-screen px-4 py-12 flex flex-col items-center">
       {/* Page Title */}
       <h1 className="text-3xl font-bold text-gray-600 mb-10 text-center">
-        Schemes
+        Schemes for IITians
       </h1>
 
       {/* Card Sections */}

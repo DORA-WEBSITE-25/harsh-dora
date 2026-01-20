@@ -59,7 +59,7 @@ const AboutDora = () => {
 
         {/* Right Column - Important Links */}
         <aside className="bg-[#0B2347] text-white rounded-xl shadow-md p-6 h-fit">
-          <h2 className="text-xl font-bold mb-4">Important Links</h2>
+          <h2 className="text-xl font-bold mb-4 py-2 border-b border-white/20">Important Links</h2>
           <ul className="space-y-3">
             {[
             //   { label: "About DORA", href: "/about-dora" },

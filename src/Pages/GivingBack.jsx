@@ -3,13 +3,13 @@ import { ChevronRight } from "lucide-react";
 
 const GivingBack = () => {
   const links = [
-    "Scheme",
-    "Esteemed Donors",
-    "Giving back to IITR",
-    "Foreign Contribution Regulation Act",
-    "CSR Contribution",
-    "Tax Exemption",
-    "Avenues for Alumni",
+      { href: "/donor-scheme-page", label: "Schemes" },
+      { href: "/esteemed-donor", label: "Esteemed Donors" },
+      { href: "donations", label: "Giving Back to IITR" },
+      { href: "fcra", label: "Foreign Contribution Regulation Act (FCRA)" },
+      { href: "/csr-contri", label: "CSR Contribution" },
+      { href: "/tax-exemp", label: "Tax Exemption" },
+      { href: "/avenues", label: "Avenues for Alumni" },
   ];
   return (
     <div className="font-poppins">
@@ -48,17 +48,19 @@ const GivingBack = () => {
 
           {/* Right card */}
           <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">
+            <h3 className="text-lg font-bold text-gray-900 mb-4 py-2 border-b border-gray-200">
               Important Links
             </h3>
             <div className="divide-y divide-gray-200">
               {links.map((item, idx) => (
                 <a
                   key={idx}
-                  href="#"
+                  href={item.href}
                   className="flex items-center justify-between py-3 text-gray-700 hover:text-[#0a2342] transition"
+                  // target={item.url.endsWith(".pdf") ? "_blank" : "_self"} 
+                  // rel="noopener noreferrer"
                 >
-                  {item}
+                  {item.label}
                   <ChevronRight className="w-4 h-4" />
                 </a>
               ))}
@@ -93,11 +95,11 @@ const GivingBack = () => {
             </div>
 
             {/* Image */}
-            <div className="w-full">
+            <div className="w-full h-full">
               <img
                 src="/giveback.jpg"
                 alt="People working on laptops"
-                className="rounded-md shadow w-full object-cover"
+                className="rounded-md shadow w-full h-full object-cover"
               />
             </div>
           </div>
@@ -119,7 +121,7 @@ const GivingBack = () => {
           </p>
           <p className="text-white">
             To donate please visit{" "}
-            <a href="https://iitrdora.iitr.ac.in/donors/info.php" className="text-blue-600 font-medium hover:underline">
+            <a href="/donation-account-page" className="text-blue-600 font-medium hover:underline">
               here
             </a>
           </p>

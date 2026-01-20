@@ -3,8 +3,15 @@ module.exports = {
   content: [
      "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  // theme: {
+  //   extend: {},
+  // },
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poltawski: ['"Poltawski Nowy"', 'serif'],
+      },
+    },
   },
   plugins: [],
 }

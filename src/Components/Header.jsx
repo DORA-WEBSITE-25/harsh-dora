@@ -1,4 +1,3 @@
-import { label } from "framer-motion/client";
 import React, { useEffect, useState } from "react";
 import { FaFacebookF, FaInstagram, FaPhoneAlt } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -11,62 +10,67 @@ const navItems = [
     label: "Dora Office",
     links: [
       { href: "/about-dora", label: "About Dora" },
-      { href: "https://www.iitr.ac.in/", label: "IIT R Home" },
       { href: "/message-dora", label: "Message from DORA" },
       { href: "/dora-staff", label: "DORA Team" },
+      { href: "https://www.iitr.ac.in/", label: "IITR Home" },
     ],
   },
   {
     key: "givingBack",
     label: "Giving Back",
     links: [
+      { href: "/donations", label: "Donate" },
       { href: "/giving-back", label: "Why Giving Back" },
-      { href: "#", label: "Schemes" },
-      { href: "#", label: "Esteemed Donors" },
-      { href: "#", label: "Giving Back to IITR" },
-      { href: "#", label: "Foreign Contribution Regulation Act (FCRA)" },
-      { href: "#", label: "CSR Contribution" },
-      { href: "#", label: "Tax Exemption" },
-      { href: "#", label: "Avenues for Alumni" },
+      { href: "/donor-scheme-page", label: "Schemes" },
+      { href: "/esteemed-donor", label: "Esteemed Donors" },
+      { href: "/donations", label: "Giving Back to IITR" },
+      { href: "/fcra", label: "Foreign Contribution Regulation Act (FCRA)" },
+      { href: "/csr-contri", label: "CSR Contribution" },
+      { href: "/tax-exemp", label: "Tax Exemption" },
+      { href: "/avenues", label: "Avenues for Alumni" },
     ],
   },
   {
     key: "newsOutreach",
     label: "News & Outreach",
     links: [
-      { href: "#", label: "Director's Message" },
-      { href: "#", label: "IITR in the News" },
-      { href: "#", label: "Snippets" },
-      { href: "#", label: "Social Media" },
-      { href: "#", label: "Books By IITR Alumni" },
+      // { href: "/dir-message", label: "Director's Message" },
+      { href: "https://alumni.iitr.ac.in/more/news/comalumni", label: "Snippets" },
+      { href: "/social-media", label: "Social Media" },
+      { href: "/book-alumni", label: "Books By IITR Alumni" },
+      { href: "https://www.iitr.ac.in/", label: "IITR in the News" },
     ],
   },
-  { href: "#", label: "Jubilee Reunions" },
-  { href: "#", label: "Global Network Of IITR Alumni" },
+  { href: "/jubilee", label: "Jubilee Reunions" },
+  { href: "/iitrdf", label: "IITRDF" },
+  // { href: "/iitrdf_csr", label: "IITRDF-CSR" },
+  { href: "/global_alumni_page", label: "Global Network Of IITR Alumni" },
   {
     key: "schemes",
-    label: "Schemes",
+    label: "Schemes for IITRians",
     links: [
-      { href: "/schemes-page", label: "For Students" },
-      { href: "#", label: "For Visitors" },
-      { href: "#", label: "For Faculty" },
-      { href: "#", label: "Testimonials" },
+      { href: "/schemes-page", label: "Schemes by IITR" },
+      // { href: "/student", label: "For Students" },
+      // { href: "/visitor", label: "For Visitors" },
+      // { href: "/faculty", label: "For Faculty" },
+      { href: "/testimonial", label: "Testimonials" },
     ],
   },
-  {
-    key: "awards",
-    label: "Awards & Prizes",
-    links: [
-      { href: "#", label: "Distinguished Alumnus Awards" },
-      { href: "#", label: "IIT Roorkee Research Awards" },
-      { href: "#", label: "Outstanding Service Awards" },
-      { href: "#", label: "Ram Kumar Prize" },
-    ],
-  },
+  { href: "/award-page", label: "IITR Awards & Prizes" },
+  // {
+  //   key: "awards",
+  //   label: "Awards & Prizes",
+  //   links: [
+  //     { href: "award-page", label: "Distinguished Alumnus Awards" },
+  //     { href: "#", label: "IIT Roorkee Research Awards" },
+  //     { href: "#", label: "Outstanding Service Awards" },
+  //     { href: "#", label: "Ram Kumar Prize" },
+  //   ],
+  // },
   { href: "/gallery", label: "Gallery" },
-  { href: "#", label: "IARC" },
-  { href: "#", label: "AMP" },
-  { href: "#", label: "Obituaries" },
+  { href: "https://alumni.iitr.ac.in/more/iarc", label: "IARC" },
+  // { href: "https://www.iitrfriends.org/iitramp", target:"_blank", label: "AMP" },
+  { href: "/obituaries", label: "Obituaries" },
 ];
 
 const Header = () => {
@@ -93,11 +97,11 @@ const Header = () => {
   const currentPath = location.pathname;
 
   const pageTitles = {
-    "/": {
-      welcomeText: "WELCOME TO",
-      title: "DORA OFFICE",
-      variant: "normal",
-    },
+    // "/": {
+    //   welcomeText: "WELCOME TO",
+    //   title: "DORA OFFICE",
+    //   variant: "normal",
+    // },
     "/about-dora": {
       welcomeText: "ABOUT DORA",
       title: "DORA OFFICE",
@@ -109,24 +113,152 @@ const Header = () => {
       variant: "reverse",
     },
     "/dora-staff": { 
-    //   welcomeText: "MESSAGE FROM DORA",
-      title: "DORA Staff",
-      variant: "normal",
+      welcomeText: "Team",
+      title: "DORA OFFICE",
+      variant: "reverse",
      },
     "/giving-back": {  
         welcomeText: "Giving back to continue to grow together and raise the tradition of excellence.",
         title: "Giving Back" ,
         variant: "reverse",
     },
+    "/donations": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Giving Back to IITR",
+     },
+    "/esteemed-donor": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Esteemed Donors",
+     },
+    "/dir-message": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Director's Message",
+     },
+    "/fcra": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Foreign Contribution Regulation Act (FCRA)",
+     },
+    "/tax-exemp": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Tax Exemption",
+     },
+    "/social-media": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Social Media",
+     },
+    "/jubilee": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Jubilee Reunions",
+     },
+    "/schemes-page": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Schemes by IITR",
+     },
+    "/student/visiting_abroad": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Students for Visiting Institutions Abroad",
+     },
+    "/student/gic": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Good International Conferences",
+     },
+    "/student/ir": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "International Research Internships",
+     },
+    "/student/lecture": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Endowed Lecture series",
+     },
+    "/iitrdf": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "IIT Roorkee Development Foundation",
+     },
+    "/iitrdf_csr": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Corporate Social Responsibility (CSR)",
+     },
     "/gallery": { title: "DORA OFFICE",
       variant: "reverse",
-      welcomeText: "",
-     }
+      welcomeText: "Gallery",
+     },
+    "/global_alumni_page": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Global Network Of IITR Alumni",
+     },
+    "/global_network_alumni": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Global Network Of IITR Alumni",
+     },
+    "/award-page": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Alumni Awards & Prizess",
+     },
+    "/iitrdf_csr": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Corporate Social Responsibility (CSR)",
+     },
+    "/research-award": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "IIT Roorkee Research Awards",
+     },
+    "/testimonial": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Testimonials",
+     },
+    "/distinguished-alumnus-awards": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Distinguished Alumnus Awards",
+     },
+    "/previous-awardee": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "List of Previous Alumnus Awardees",
+     },
+    "/awardees-table": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Awardee from 2005-2023",
+     },
+    "/donor-scheme-page": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Schemes for Donation",
+     },
+    "/csr-contri": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "CSR contributions",
+     },
+    "/avenues": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Avenues",
+     },
+    "/donation-account-page": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Donation Account Details",
+     },
+    "/DonorPage": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Top Donors",
+     },
+    "/DonorPage": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Top Donors",
+     },
+    "/batch-donors": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Batch Donors",
+     },
+    "/individual-donors": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Individual Donors",
+     },
+    "/obituaries": { title: "DORA OFFICE",
+      variant: "reverse",
+      welcomeText: "Obituaries",
+     },
   };
 
   const { welcomeText, title, variant } = pageTitles[currentPath] || {
     welcomeText: "",
-    title: "DORA OFFICE",
+    //title: "DORA OFFICE",
     variant: "normal",
   };
 
@@ -137,13 +269,13 @@ const Header = () => {
         {/* <div className="max-w-7xl mx-auto flex items-center justify-end px-4 py-2 text-sm space-x-4"> */}
         <div className="mx-auto flex items-center justify-end px-4 py-2 text-sm space-x-4">
           <div className="flex items-center space-x-4">
-            <a href="#" className="text-[#3b5998]" aria-label="Facebook">
+            <a href="https://www.facebook.com/DORAIITR/" className="text-[white]" aria-label="Facebook">
               <FaFacebookF size={16} />
             </a>
-            <a href="#" className="text-[#E1306C]" aria-label="Instagram">
+            <a href="https://www.instagram.com/dora_iitr/" className="text-[#E1306C]" aria-label="Instagram">
               <FaInstagram size={16} />
             </a>
-            <a href="#" className="text-[white]" aria-label="Twitter">
+            <a href="https://x.com/doraiitr" className="text-[white]" aria-label="Twitter">
               <FaXTwitter size={16} />
             </a>
           </div>
@@ -151,7 +283,7 @@ const Header = () => {
             <span className="bg-green-500 p-1 rounded-full flex items-center">
               <FaPhoneAlt size={12} />
             </span>
-            <span>Call Us &nbsp; +91 44-xxxx-839</span>
+            <span>Call Us &nbsp; +91 90847 28182</span>
           </div>
         </div>
       </div>
@@ -177,14 +309,17 @@ const Header = () => {
               </div>
             </div>
             <div className="hidden md:flex items-center gap-6">
-              <a href="/" className="text-slate-700 hover:text-blue-600">
-                Home
+              <a 
+                href="https://almamater.iitr.ac.in/alumportal/login_website.aspx" 
+                className="inline-flex items-center rounded px-4 py-2 bg-blue-950 text-white hover:opacity-90"
+              >
+                Alumni Card
               </a>
-              <a href="/login" className="text-slate-700 hover:text-blue-600">
+              {/* <a href="/login" className="text-slate-700 hover:text-blue-600">
                 Login
-              </a>
+              </a> */}
               <a
-                href="/donate"
+                href="/donations"
                 className="inline-flex items-center rounded px-4 py-2 bg-blue-950 text-white hover:opacity-90"
               >
                 Donate
@@ -209,7 +344,7 @@ const Header = () => {
       </div>
 
       {/* Shrinked Hero Section */}
-      <section className="relative w-full" style={{ height: "50vh" }}>
+      <section className="relative w-full" style={{ height: "90vh" }}>
         <div
           className="absolute inset-0 w-full h-full"
           style={{
@@ -228,7 +363,7 @@ const Header = () => {
           <div className="mx-auto px-4 sm:px-6 lg:px-8">
             {/* Desktop menu */}
             {/* <div className="hidden lg:flex items-center gap-5 text-white h-12"> */}
-            <div className="hidden lg:flex items-center gap-10 text-white h-12">
+            <div className="hidden lg:flex items-center gap-8 text-white h-12">
               {navItems.map((item) =>
                 item.links ? (
                   <div
@@ -310,13 +445,19 @@ const Header = () => {
                 </button>
                 <div className="flex items-center gap-2">
                   <a
+                    href="/"
+                    className="text-white/90 hover:text-white text-sm"
+                  >
+                    Home
+                  </a>
+                  {/* <a
                     href="/login"
                     className="text-white/90 hover:text-white text-sm"
                   >
                     Login
-                  </a>
+                  </a> */}
                   <a
-                    href="/donate"
+                    href="/donations"
                     className="rounded-md bg-blue-600 px-3 py-2 text-sm font-medium text-white hover:bg-blue-500"
                   >
                     Donate

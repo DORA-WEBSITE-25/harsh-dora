@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { ChevronRight } from "lucide-react";
 
-const Card = ({ title, links }) => {
+const Card = ({ title, links, activeYear, setActiveYear }) => {
   return (
     <section className="bg-white rounded-lg shadow-2xl p-10 w-full max-w-3xl">
-      {/* Section Heading */}
       <h2 className="text-xl font-bold text-[#003B71] mb-4">{title}</h2>
 
-      {/* Links */}
       <div className="divide-y-2 divide-gray-300">
         {links.map((item, idx) => (
+          
           <a
             key={idx}
             href={item.href}
-            className="flex items-center justify-between py-3 text-[#183059] hover:text-gray-700 hover:underline transition"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-full items-center justify-between py-3 text-[#183059] hover:text-gray-700 hover:underline transition"
           >
-            <span className="pr-4 text-sm leading-snug p-1">{item.label}</span>
+            <span className="pr-4 text-md leading-snug p-1">{item.label}</span>
             <ChevronRight className="w-4 h-4 flex-shrink-0" />
           </a>
         ))}
@@ -25,26 +26,26 @@ const Card = ({ title, links }) => {
 };
 
 const Gallery = () => {
-  const facultyLinks = [
-    { label: "Guidelines for Support for IITR Faculty for Visiting Institutions Abroad", href: "#" },
-    { label: "Online Application Form", href: "#" },
-    { label: "100% Advance for Visiting Institutions Abroad (pdf)", href: "#" },
-    { label: "Claim Form for Visiting Institutions Abroad (pdf)", href: "#" },
-    { label: "Proforma for Direct Payment (Pdf File)", href: "#" },
-    { label: "TA Form (pdf)", href: "#" },
+  const foundationday = [
+    {
+      label: "DA Award Ceremony-2023 / Foundation Day Celebration - 2024",
+      href: "https://iitracin-my.sharepoint.com/personal/dora_office_iitr_ac_in/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdora%5Foffice%5Fiitr%5Fac%5Fin%2FDocuments%2FPhotos%20%2D%20DAA2023&ga=1",
+    },
+    {
+      label: "Foundation Day Celebration - 2023",
+      href: "https://drive.google.com/drive/folders/1AdyXYXHf4js861QzJ17Y7Hs2dGIZxnED?usp=sharing",
+    },
   ];
 
-  const visitorLinks = [
-    { label: "Online Application For Support for Faculty, Researchers, and Students from Foreign Institutions", href: "#" },
-    { label: "Guidelines for Support for Faculty, Researchers, and Students from Foreign Institutions", href: "#" },
-    { label: "Travelling Allowance Bill – IIT Roorkee", href: "#" },
+  const Jubileegallery = [
+    { label: "2025", href: "/gallery/2025" },
+    { label: "2024", href: "/gallery/2024" },
+    { label: "2023", href: "/gallery/2023" },
+    { label: "2022", href: "/gallery/2022" },
+    { label: "2021", href: "/gallery/2021" },
   ];
 
-  const studentLinks = [
-    { label: "Partial Support for Visiting Institutions Abroad", href: "#" },
-    { label: "Partial Support to Attend Good International Conferences", href: "#" },
-    { label: "Partial Support for International Research Internships", href: "#" },
-  ];
+  const [activeYear, setActiveYear] = useState("2025"); // Default open
 
   return (
     <main className="bg-gray-50 min-h-screen px-4 py-12 flex flex-col items-center">
@@ -55,11 +56,83 @@ const Gallery = () => {
 
       {/* Card Sections */}
       <div className="flex flex-col gap-10 w-full items-center">
-        <Card title="Foundation Day" links={facultyLinks} />
-        <Card title="Jubilee Reunions" links={visitorLinks} />
+        <Card title="Foundation Day" links={foundationday} />
+
+        <Card
+          title="Jubilee Reunions"
+          links={Jubileegallery}
+          activeYear={activeYear}
+          setActiveYear={setActiveYear}
+        />
       </div>
     </main>
   );
 };
 
 export default Gallery;
+
+// import React from "react";
+// import { ChevronRight } from "lucide-react";
+
+// const Card = ({ title, links }) => {
+//   return (
+//     <section className="bg-white rounded-lg shadow-2xl p-10 w-full max-w-3xl">
+//       {/* Section Heading */}
+//       <h2 className="text-xl font-bold text-[#003B71] mb-4">{title}</h2>
+
+//       {/* Links */}
+//       <div className="divide-y-2 divide-gray-300">
+//         {links.map((item, idx) => (
+//           <a
+//             key={idx}
+//             href={item.href}
+//             className="flex items-center justify-between py-3 text-[#183059] hover:text-gray-700 hover:underline transition"
+//           >
+//             <span className="pr-4 text-sm leading-snug p-1">{item.label}</span>
+//             <ChevronRight className="w-4 h-4 flex-shrink-0" />
+//           </a>
+//         ))}
+//       </div>
+//     </section>
+//   );
+// };
+
+// const Gallery = () => {
+//   const facultyLinks = [
+//     { label: "Guidelines for Support for IITR Faculty for Visiting Institutions Abroad", href: "#" },
+//     { label: "Online Application Form", href: "#" },
+//     { label: "100% Advance for Visiting Institutions Abroad (pdf)", href: "#" },
+//     { label: "Claim Form for Visiting Institutions Abroad (pdf)", href: "#" },
+//     { label: "Proforma for Direct Payment (Pdf File)", href: "#" },
+//     { label: "TA Form (pdf)", href: "#" },
+//   ];
+
+//   const visitorLinks = [
+//     { label: "Online Application For Support for Faculty, Researchers, and Students from Foreign Institutions", href: "#" },
+//     { label: "Guidelines for Support for Faculty, Researchers, and Students from Foreign Institutions", href: "#" },
+//     { label: "Travelling Allowance Bill – IIT Roorkee", href: "#" },
+//   ];
+
+//   const studentLinks = [
+//     { label: "Partial Support for Visiting Institutions Abroad", href: "#" },
+//     { label: "Partial Support to Attend Good International Conferences", href: "#" },
+//     { label: "Partial Support for International Research Internships", href: "#" },
+//   ];
+
+//   return (
+//     <main className="bg-gray-50 min-h-screen px-4 py-12 flex flex-col items-center">
+//       {/* Page Title */}
+//       <h1 className="text-3xl font-bold text-gray-600 mb-10 text-center">
+//         Gallery
+//       </h1>
+
+//       {/* Card Sections */}
+//       <div className="flex flex-col gap-10 w-full items-center">
+//         <Card title="Foundation Day" links={facultyLinks} />
+//         <Card title="Jubilee Reunions" links={visitorLinks} />
+//       </div>
+//     </main>
+//   );
+// };
+
+// export default Gallery;

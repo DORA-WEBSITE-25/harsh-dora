@@ -1,3 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Header aur Footer ke liye default Tailwind font hi rahe */
